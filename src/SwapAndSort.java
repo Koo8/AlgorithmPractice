@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SwapAndSort {
 
@@ -22,7 +20,7 @@ public class SwapAndSort {
         // create an empty arrayList
         ArrayList<Integer> sortedList = new ArrayList<>();
         // sort and add each number to new arraylist
-        myListArray.stream().sorted().forEach(i -> sortedList.add(i));
+        myListArray.stream().sorted().forEach(sortedList::add);
       //  myListArray.stream().sorted().forEach(System.out::println); // highlight: this only print out sorted numbers, but not make changes to the original arraylist.
         // convert new arraylist to new array
         for (int i = 0; i < sortedList.size(); i++) {
@@ -35,10 +33,10 @@ public class SwapAndSort {
 
     }
 
-    public static ArrayList<Integer> changeArrayToArrayList(int[] list) {
+    private static ArrayList<Integer> changeArrayToArrayList(int[] list) {
         ArrayList<Integer> myList = new ArrayList<>();
-        for (int i = 0; i < list.length; i++) {
-            myList.add(list[i]);
+        for (int value : list) {
+            myList.add(value);
         }
         return myList;
     }
