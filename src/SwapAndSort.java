@@ -8,6 +8,7 @@ public class SwapAndSort {
         // method 1
         streamToSort(array);
         // method 2
+        selectionSort(array);
 
     }
 
@@ -41,7 +42,32 @@ public class SwapAndSort {
         return myList;
     }
 
-    public static void selectionSort(int[] array) {
+    private static void selectionSort(int[] array) {
+        int minIndex;
+        for (int i = 0; i <array.length ; i++) {
+            minIndex = indexOfMin(array,i);
+            swap(array,i,minIndex);
+        }
+        for (int value : array) {
+            System.out.println(value);
+        }
+    }
 
+    private static void swap(int[] array, int firstIndex, int secondIndex) {
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
+    }
+
+    private static int indexOfMin(int[] array, int startIndex) {
+        int minValue = array[startIndex];
+        int minIndex = startIndex;
+        for (int i = minIndex+1; i <array.length ; i++) {
+            if(array[i] < minValue){
+                minIndex = i;
+                minValue = array[i];
+            }
+        }
+        return minIndex;
     }
 }
